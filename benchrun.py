@@ -255,10 +255,13 @@ def main():
             elif readout:
                 print line
             elif not got_results and getting_results:
+                print line
                 line_results += line
 
     print("Finished Testing.")
+    print line_results
     results_parsed = json.loads(line_results)
+    print results_parsed
     if args.outfile:
         out = open(args.outfile, 'w')
         json.dump(results_parsed, out, indent=4, separators=(',', ': '))
